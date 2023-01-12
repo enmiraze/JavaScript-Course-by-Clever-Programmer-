@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Roulette Table</title>
+    <style>
+      /* styles for the table */
+      table {
+        border-collapse: collapse;
+        margin: 0 auto;
+      }
+      td {
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        border: 1px solid black;
+      }
+      /* styles for the numbers */
+      .number {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        color: black;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        line-height: 40px;
+        border: none;
+      }
+      /* styles for the red numbers */
+      .red {
+        background-color: red;
+        color: white;
+      }
+      /* styles for the black numbers */
+      .black {
+        background-color: black;
+        color: white;
+      }
+      /* styles for the green number (0) */
+      .green {
+        background-color: green;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <table id="roulette-table">
+      <tbody>
+        <tr>
+          <td><button class="number green" onClick="trackSpin(0)">0</button></td>
+          <td><button class="number black" onClick="trackSpin(1)">1</button></td>
+          <td><button class="number red" onClick="trackSpin(2)">2</button></td>
+          <td><button class="number black" onClick="trackSpin(3)">3</button></td>
+          <!-- more number buttons -->
+        </tr>
+        <!-- more rows of number buttons -->
+      </tbody>
+    </table>
+    <table id="spin-table">
+      <tbody id="spin-results"></tbody>
+    </table>
+    <script>
+      var spinCount = 0;
+      var rowCount = 1;
+      var currentRow;
+      var dozen1 = 0;
+      var dozen2 = 0;
+      var dozen3 = 0;
+      
+      function trackSpin(spinNumber) {
+        if (spinCount % 3 === 0) {
+          currentRow = document.createElement("tr");
+          document.getElementById("spin-results").appendChild(currentRow);
+          rowCount++;
+        }
+        if (spinNumber >= 1 && spinNumber <= 12) {
+          dozen1++;
+        } else if (spinNumber >= 13 && spinNumber <= 24) {
+          dozen2++;
+        } else if (spinNumber >= 25 && spinNumber <= 36) {
+          dozen3++;
+        }
+        var spinCol = document.createElement("td");
+        spinCol.innerHTML = spinNumber;
+        currentRow.appendChild(spinCol);
+        var dozen1Col = document.createElement("td");
+        dozen1Col.innerHTML = dozen1;
+        currentRow.appendChild(dozen1Col);
+        var dozen2Col = document.createElement("td");
+        dozen2Col.innerHTML = dozen2;
+        currentRow.appendChild(dozen2Col);
+        var dozen3Col = document.createElement("td");
+        dozen3Col.innerHTML = dozen3;
+        currentRow.appendChild(dozen3Col);
+        spinCount++;
+      }
+    </script>
+  </body>
+</html>

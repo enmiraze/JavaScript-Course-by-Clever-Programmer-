@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Roulette Table</title>
+    <style>
+      /* styles for the table */
+      table {
+        border-collapse: collapse;
+        margin: 0 auto;
+      }
+      td {
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        border: 1px solid black;
+      }
+      /* styles for the numbers */
+      .number {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        color: black;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        line-height: 40px;
+        border: none;
+      }
+      /* styles for the red numbers */
+      .red {
+        background-color: red;
+        color: white;
+      }
+      /* styles for the black numbers */
+      .black {
+        background-color: black;
+        color: white;
+      }
+      /* styles for the green number (0) */
+      .green {
+        background-color: green;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tbody>
+        <tr>
+          <td><button class="number red" onClick="trackSpin(this)">1</button></td>
+          <td><button class="number black" onClick="trackSpin(this)">2</button></td>
+          <td><button class="number red" onClick="trackSpin(this)">3</button></td>
+          <!-- ... -->
+          <td><button class="number red" onClick="trackSpin(this)">34</button></td>
+          <td><button class="number black" onClick="trackSpin(this)">35</button></td>
+          <td><button class="number red" onClick="trackSpin(this)">36</button></td>
+        </tr>
+        <tr>
+          <td colspan="3"><button class="number green" onClick="trackSpin(this)">0</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <div id="dozen-1"></div>
+    <div id="dozen-2"></div>
+    <div id="dozen-3"></div>
+    <script>
+      var dozen1 = 0;
+      var dozen2 = 0;
+      var dozen3 = 0;
+      document.getElementById("dozen-1").innerHTML = "Dozen 1: " + dozen1;
+      document.getElementById("dozen-2").innerHTML = "Dozen 2: " + dozen2;
+      document.getElementById("dozen-3").innerHTML = "Dozen 3: " + dozen3;
+      
+      function trackSpin(e) {
+        var spinNumber = Number(e.textContent);
+        if (spinNumber >= 1 && spinNumber <= 12) {
+          dozen1++;
+        } else if (spinNumber >= 13 && spinNumber <= 24) {
+          dozen2++;
+        } else if (spinNumber >= 25 && spinNumber <= 36) {
+          dozen3++;
+        }
+        document.getElementById("dozen-1").innerHTML = "Dozen 1: " + dozen1;
+        document.getElementById("dozen-2").innerHTML = "Dozen 2: " + dozen2;
+        document.getElementById("dozen-3").innerHTML = "Dozen 3: " + dozen3;
+      }
+    </script>
+  </body>
+</html>

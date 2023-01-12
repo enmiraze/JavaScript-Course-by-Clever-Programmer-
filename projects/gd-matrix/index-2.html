@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Roulette Table</title>
+  <style>
+    /* styles for the table */
+    table {
+      border-collapse: collapse;
+      margin: 0 auto;
+    }
+
+    th,
+    td {
+      border: 1px solid black;
+      text-align: center;
+      padding: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <table id="spin-table">
+    <thead>
+      <tr>
+        <th>Spin Number</th>
+        <th>Dozen 1</th>
+        <th>Dozen 2</th>
+        <th>Dozen 3</th>
+      </tr>
+    </thead>
+    <tbody id="spin-results"></tbody>
+  </table>
+  <div id="spin-number"></div>
+  <div>
+    <button onClick="trackSpin()">Track Spin</button>
+  </div>
+  <script>
+    var spinNumber = 0;
+    var dozen1 = 0;
+    var dozen2 = 0;
+    var dozen3 = 0;
+    document.getElementById("spin-number").innerHTML = "Spin Number: " + spinNumber;
+
+    function trackSpin() {
+      spinNumber++;
+      var spinResult = document.createElement("tr");
+      var spinNumberCol = document.createElement("td");
+      spinNumberCol.innerHTML = spinNumber;
+      spinResult.appendChild(spinNumberCol);
+      if (spinNumber > 0 && spinNumber <= 12) {
+        dozen1++;
+        var dozen1Col = document.createElement("td");
+        dozen1Col.innerHTML = "X";
+        spinResult.appendChild(dozen1Col);
+        var dozen2Col = document.createElement("td");
+        spinResult.appendChild(dozen2Col);
+        var dozen3Col = document.createElement("td");
+        spinResult.appendChild(dozen3Col);
+      } else if (spinNumber > 12 && spinNumber <= 24) {
+        dozen2++;
+        var dozen1Col = document.createElement("td");
+        spinResult.appendChild(dozen1Col);
+        var dozen2Col = document.createElement("td");
+        dozen2Col.innerHTML = "X";
+        spinResult.appendChild(dozen2Col);
+        var dozen3Col = document.createElement("td");
+        spinResult.appendChild(dozen3Col);
+      } else if (spinNumber > 24 && spinNumber <= 36) {
+        dozen3++;
+        var dozen1Col = document.createElement("td");
+        spinResult.appendChild(dozen1Col);
+        var dozen2Col = document.createElement("td");
+        spinResult.appendChild(dozen2Col);
+        var dozen3Col = document.createElement("td");
+        dozen3Col.innerHTML = "X";
+        spinResult.appendChild(dozen3Col);
+      }
+      document.getElementById("spin-results").appendChild(spinResult);
+      document.getElementById("spin-number").innerHTML = "Spin Number: " + spinNumber;
+      }
+    </script>
+  </body>
+</html>
