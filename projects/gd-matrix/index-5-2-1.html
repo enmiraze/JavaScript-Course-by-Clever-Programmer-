@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Number Tracker</title>
+    <style>
+    /* CSS styles go here */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+    }
+    th {
+      text-align: left;
+    }
+    #input-form {
+      margin-bottom: 20px;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>Number Tracker</h1>
+    <div id="input-form">
+      <label for="number-input">Enter a number between 1 and 36:</label>
+      <input type="number" id="number-input" min="1" max="36">
+      <button onclick="addNumber()">Add</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>1st Dozen</th>
+          <th>2nd Dozen</th>
+          <th>3rd Dozen</th>
+        </tr>
+      </thead>
+      <tbody id="number-table">
+        <!-- Numbers will be added to this table as rows -->
+      </tbody>
+    </table>
+    <p id="added-numbers"></p>
+    <script>
+    var addedNumbers = []; // array to store added numbers
+    function addNumber() {
+      var input = document.getElementById("number-input");
+      var number = input.value;
+      if (!number) {
+        alert("Please enter a number between 1 and 36.");
+        return;
+      }
+      addedNumbers.unshift(number); // add number to the beginning of the array
+      input.value = "";
+      updateAddedNumbers();
+      if (addedNumbers.length % 3 == 0) {
+        var dozen1Count = 0;
+        var dozen2Count = 0;
+        var dozen3Count = 0;
+        for (var i = 0; i < 3; i++) {
+          var number = addedNumbers[i];
+          if (number <= 12) {
+            dozen1Count++;
+          } else if (number <= 24) {
+            dozen2Count++;
+          } else {
+            dozen3Count++;
+          }
+        }
+        var table = document.getElementById("number-table");
+        var row = table.insertRow();
+        var dozen1 = row.insertCell(0);
+        var dozen2 = row.insertCell(1);
+        var dozen3 = row.insertCell(2);
+        dozen1.innerHTML = dozen1Count;
+        dozen2.innerHTML = dozen2Count;
+        dozen3.innerHTML = dozen3Count;
+        dozen1Count = 0;
+        dozen2Count = 0;
+        dozen3Count = 0;
+        addedNumbers.splice(0,3);
+      }
+}
+function updateAddedNumbers() {
+  var addedNumbersElem = document.getElementById("added-numbers");
+  addedNumbersElem.innerHTML = addedNumbers.join(", "); // join array with commas
+}
+</script>
+  </body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Number Tracker</title>
+    <style>
+    /* CSS styles go here */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+    }
+    th {
+      text-align: left;
+    }
+    #input-form {
+      margin-bottom: 20px;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>Number Tracker</h1>
+    <div id="input-form">
+      <label for="number-input">Enter a number between 1 and 36:</label>
+      <input type="number" id="number-input" min="1" max="36">
+      <button onclick="addNumber()">Add</button>
+    </div>
+    <p id="added-numbers"></p>
+    <table>
+      <thead>
+        <tr>
+          <th>1st Dozen</th>
+          <th>2nd Dozen</th>
+          <th>3rd Dozen</th>
+        </tr>
+      </thead>
+
+      <tbody id="number-table">
+        <tr>
+          <td id="dozen1-count">0</td>
+          <td id="dozen2-count">0</td>
+          <td id="dozen3-count">0</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <script>
+    var addedNumbers = []; // array to store added numbers
+    var dozen1Count = 0;
+    var dozen2Count = 0;
+  var dozen3Count = 0;
+    function addNumber() {
+      var input = document.getElementById("number-input");
+      var number = input.value;
+      if (!number) {
+        alert("Please enter a number between 1 and 36.");
+        return;
+      }
+      addedNumbers.unshift(number); // add number to the beginning of the array
+      input.value = "";
+      updateAddedNumbers();
+      updateTrackerTable(number);
+    }
+    function updateAddedNumbers() {
+      var addedNumbersElem = document.getElementById("added-numbers");
+      addedNumbersElem.innerHTML = addedNumbers.join(", "); // join array with commas
+    }
+    function updateTrackerTable(number) {
+      if (number <= 12) {
+        dozen1Count++;
+      } else if (number <= 24) {
+        dozen2Count++;
+      } else {
+        dozen3Count++;
+      }
+      document.getElementById("dozen1-count").innerHTML = dozen1Count;
+      document.getElementById("dozen2-count").innerHTML = dozen2Count;
+      document.getElementById("dozen3-count").innerHTML = dozen3Count;
+    }
+    </script>
+  </body>
+</html>
