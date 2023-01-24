@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Tracker</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <h1>Tracker</h1>
+  <div id="input-form">
+    <label for="number-input">Enter a number between 1 and 36:</label>
+    <input type="number" id="number-input" min="0" max="36">
+    <button id="add-button" onclick="addNumber()">Add</button>
+  </div>
+  <p id="added-numbers"></p>
+  <table class="dozen">
+    <thead>
+      <tr>
+        <th>1st Dozen</th>
+        <th>2nd Dozen</th>
+        <th>3rd Dozen</th>
+      </tr>
+    </thead>
+    <tbody id="number-table">
+      <tr>
+        <td id="dozen1-count">0</td>
+        <td id="dozen2-count">0</td>
+        <td id="dozen3-count">0</td>
+      </tr>
+    </tbody>
+  </table>
+ 
+
+  <script src="main.js"></script>
+
+</body>
+
+</html>
