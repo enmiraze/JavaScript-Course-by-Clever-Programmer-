@@ -14,22 +14,43 @@
     <button id="add-button" onclick="addNumber()">Add</button>
   </div>
   <p id="added-numbers"></p>
-  <table class="dozen">
-    <thead>
-      <tr>
-        <th>1st Dozen</th>
-        <th>2nd Dozen</th>
-        <th>3rd Dozen</th>
-      </tr>
-    </thead>
-    <tbody id="number-table">
-      <tr>
-        <td id="dozen1-count">0</td>
-        <td id="dozen2-count">0</td>
-        <td id="dozen3-count">0</td>
-      </tr>
-    </tbody>
-  </table>
+  <div style="display: flex;">
+    <!-- Dozen matrix -->
+    <table>
+      <thead>
+        <tr>
+          <th>1D</th>
+          <th>2D</th>
+          <th>3D</th>
+        </tr>
+      </thead>
+      <tbody id="dozen-table">
+        <tr>
+          <td id="dozen1-count">0</td>
+          <td id="dozen2-count">0</td>
+          <td id="dozen3-count">0</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Column matrix -->
+    <table style="margin-left: 20px">
+      <thead>
+        <tr>
+          <th>1C</th>
+          <th>2C</th>
+          <th>3C</th>
+        </tr>
+      </thead>
+      <tbody id="column-table">
+        <tr>
+          <td id="column-count">0</td>
+          <td id="column-count">0</td>
+          <td id="column-count">0</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
  
 
   <script src="main.js"></script>

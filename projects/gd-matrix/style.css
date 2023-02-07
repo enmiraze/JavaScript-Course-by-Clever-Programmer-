@@ -30,12 +30,8 @@ button {
 }
 
 table {
-  width: 100%;
+  width: 10%;
   border-collapse: collapse;
-}
-
-table.dozen {
-    width: 20%;
 }
 
 th,

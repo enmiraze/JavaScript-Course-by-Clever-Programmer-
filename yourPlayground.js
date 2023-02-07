@@ -1,21 +1,13 @@
-function sum(a, b) {
-    return a + b;
+
+const introducer = (name, role) => {
+
+    const person = {
+        name: name,
+        role: role
+    }
+
+    const intro = `Hi, my name is ${person.name} and I am ${person.role} at Ennova Research SRL`;
+    return intro
 }
 
-function calculateFoodTotal (food, tip){
-    const tipPercentage = tip / 100;
-    const tipAmount = food * tipPercentage;
-    const total = sum(food, tipAmount);
-
-    return total;
-}
-
-// console.log(calculateFoodTotal(300, 20));
-
-// Arrays
-
-
-
-
-
-
+console.log(introducer("Miraze", "Head of Design"))
