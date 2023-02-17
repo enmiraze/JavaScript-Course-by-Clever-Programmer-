@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Tracker</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <h1>Tracker</h1>
+  <div id="input-form">
+    <label for="number-input">Enter a number between 1 and 36:</label>
+    <input type="number" id="number-input" min="0" max="36">
+    <button id="add-button" onclick="addNumber()">Add</button>
+  </div>
+  <p id="added-numbers"></p>
+  <div style="display: flex;">
+    <!-- Dozen matrix -->
+    <table>
+      <thead>
+        <tr>
+          <th>1D</th>
+          <th>2D</th>
+          <th>3D</th>
+        </tr>
+      </thead>
+      <tbody id="dozen-table">
+        <tr>
+          <td id="dozen1-count">0</td>
+          <td id="dozen2-count">0</td>
+          <td id="dozen3-count">0</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Column matrix -->
+    <table style="margin-left: 20px">
+      <thead>
+        <tr>
+          <th>1C</th>
+          <th>2C</th>
+          <th>3C</th>
+        </tr>
+      </thead>
+      <tbody id="column-table">
+        <tr>
+          <td id="column-count">0</td>
+          <td id="column-count">0</td>
+          <td id="column-count">0</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+ 
+
+  <script src="main.js"></script>
+
+</body>
+
+</html>

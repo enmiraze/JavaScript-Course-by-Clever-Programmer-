@@ -1,3 +1,4 @@
+
 let addedNumbers = []; // array to store added numbers
 let spins = 0;
 let input = document.getElementById("number-input");
@@ -21,22 +22,10 @@ function addNumber() {
 
     if (number <= 12 && number >= 1) {
         dozen1Count.innerHTML++;
-        if (dozen1Count.innerHTML === "3") {
-            dozen1Count.style.backgroundColor = "red";
-            dozen1Count.style.color = "white";
-        }
-    } else if (number <= 24 && number >= 13) {
+    } else if (number <= 24 && number >= 12) {
         dozen2Count.innerHTML++;
-        if (dozen2Count.innerHTML === "3") {
-            dozen2Count.style.backgroundColor = "red";
-            dozen2Count.style.color = "white";
-        }
     } else {
         dozen3Count.innerHTML++;
-        if (dozen3Count.innerHTML === "3") {
-            dozen3Count.style.backgroundColor = "red";
-            dozen3Count.style.color = "white";
-        }
     }
     spins++;
 
@@ -50,18 +39,6 @@ function addNumber() {
         dozen1.innerHTML = dozen1Count.innerHTML;
         dozen2.innerHTML = dozen2Count.innerHTML;
         dozen3.innerHTML = dozen3Count.innerHTML;
-        if (dozen1Count.innerHTML === "3") {
-            dozen1.style.backgroundColor = "red";
-            dozen1.style.color = "white";
-        }
-        if (dozen2Count.innerHTML === "3") {
-            dozen2.style.backgroundColor = "red";
-            dozen2.style.color = "white";
-        }
-        if (dozen3Count.innerHTML === "3") {
-            dozen3.style.backgroundColor = "red";
-            dozen3.style.color = "white";
-        }
         dozen1Count.innerHTML = 0;
         dozen2Count.innerHTML = 0;
         dozen3Count.innerHTML = 0;
