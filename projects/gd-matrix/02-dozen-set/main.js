@@ -27,19 +27,10 @@ function addNumber() {
     // Check which dozen the number belongs to
     if (dozen1.includes(parseInt(number))) {
         dozen1Count.innerHTML++;
-        if (dozen1Count.innerHTML == 3) {
-           document.getElementById("dozen-table").rows[0].cells[0].style.backgroundColor = "red";
-        }
     } else if (dozen2.includes(parseInt(number))) {
         dozen2Count.innerHTML++;
-        if (dozen2Count.innerHTML == 3) {
-            document.getElementById("dozen-table").rows[0].cells[1].style.backgroundColor = "red";
-        }
     } else {
         dozen3Count.innerHTML++;
-        if (dozen3Count.innerHTML == 3) {
-            document.getElementById("dozen-table").rows[0].cells[2].style.backgroundColor = "red";
-        }
     }
     spins++;
 
@@ -56,10 +47,6 @@ function addNumber() {
         dozen1Count.innerHTML = 0;
         dozen2Count.innerHTML = 0;
         dozen3Count.innerHTML = 0;
-        // reset background color
-        document.getElementById("dozen-table").rows[0].cells[0].style.backgroundColor = "";
-        document.getElementById("dozen-table").rows[0].cells[1].style.backgroundColor = "";
-        document.getElementById("dozen-table").rows[0].cells[2].style.backgroundColor = "";
     }
 
 }
