@@ -16,29 +16,23 @@
   <p id="added-numbers"></p>
   <div style="display: flex;">
     <!-- Dozen matrix -->
-    <div id="container">
-      <div id="numbers">
-        <label for="number-input">Enter a number between 1 and 36:</label>
-        <input type="text" id="number-input">
-        <div id="added-numbers"></div>
-      </div>
-      <div id="dozens">
-        <div id="dozen1">
-          <div>Dozen 1 (1-12)</div>
-          <div id="dozen1-count">0</div>
-        </div>
-        <div id="dozen2">
-          <div>Dozen 2 (13-24)</div>
-          <div id="dozen2-count">0</div>
-        </div>
-        <div id="dozen3">
-          <div>Dozen 3 (25-36)</div>
-          <div id="dozen3-count">0</div>
-        </div>
-      </div>
-      <div id="history"></div>
-    </div>
-    
+    <table>
+      <thead>
+        <tr>
+          <th>1D</th>
+          <th>2D</th>
+          <th>3D</th>
+        </tr>
+      </thead>
+      <tbody id="dozen-table">
+        <tr>
+          <td id="dozen1-count">0</td>
+          <td id="dozen2-count">0</td>
+          <td id="dozen3-count">0</td>
+        </tr>
+      </tbody>
+    </table>
+
     <!-- Column matrix -->
     <table style="margin-left: 20px; display: none;">
       <thead>
